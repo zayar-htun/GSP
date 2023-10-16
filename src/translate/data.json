@@ -1,0 +1,25 @@
+{
+    "Eng" : {
+        "name" : "GSP",
+        "login" : "Login",
+        "register" : "Register",
+        "username" : "Name",
+        "email" : "Email",
+        "profile" : "Profile",
+        "password" : "Password",
+        "exploreCourse" : "Explore the best courses",
+        "aboutcourse":"About this course"
+        
+    },
+    "Myr" : {
+        "name" : "ZYT-Eco",
+        "login" : "အကောင့်၀င်ရန်",
+        "register" : "စာရင်းသွင်းရန်",
+        "username" : "နာမည်",
+        "email" : "Email",
+        "profile" : "ကိုယ်ရေးအကျဉ်:",
+        "password" : "စကားဝှက်",
+        "exploreCourse" : "အကောင်းဆုံးသင်တန်းများကို လေ့လာပါ။",
+        "aboutcourse":"သင်တန်းအကြောင်း"
+    }
+ }
