@@ -1,7 +1,11 @@
-import { Box, Card, CardContent, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import { Box, Card, CardContent, Divider, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import React from "react";
 import { PieChart } from "@mui/icons-material";
+import PieChartDash from "./charts/PieChartDash";
+import BarChartDash from "./charts/BarChartDash";
+import LineChartDash from "./charts/LineChartDash";
+import ViewAllCourses from "./comforTea/ViewAllCourses";
 
 function TeaDash() {
     return (
@@ -98,9 +102,22 @@ function TeaDash() {
                     </Grid>
                 </Grid>
             </Box>
-            <Box>
-              <PieChart/>
+            <Divider sx={{my:2}}/>
+            <Box sx={{mt:2,display:"flex",justifyContent:"space-around"}}>
+              <PieChartDash />
+              <BarChartDash/>
             </Box>
+            <Divider sx={{my:2}}/>
+            <Box>
+              <LineChartDash/>
+            </Box>
+            <Divider sx={{my:2}}/>
+            <Box>
+              <Typography variant="h5">View All Courses</Typography>
+              <ViewAllCourses/>
+            </Box>
+            <Divider sx={{my:2}}/>
+            
         </Box>
     );
 }
