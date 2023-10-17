@@ -61,6 +61,7 @@ export default function TabsForDetail() {
                     <Tab label={translate.aboutcourse} {...a11yProps(0)} />
                     <Tab label="About The Instructor" {...a11yProps(1)} />
                     <Tab label="Reviews" {...a11yProps(2)} />
+
                 </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
