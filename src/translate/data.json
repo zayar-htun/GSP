@@ -7,6 +7,7 @@
         "email" : "Email",
         "profile" : "Profile",
         "password" : "Password",
+        "bio":"Teacher Bio",
         "exploreCourse" : "Explore the best courses",
         "aboutcourse":"About this course"
         
@@ -19,6 +20,7 @@
         "email" : "Email",
         "profile" : "ကိုယ်ရေးအကျဉ်:",
         "password" : "စကားဝှက်",
+        "bio":"ဆရာ/ဆရာမ ကိုယ်ရေးအကျဥ်း",
         "exploreCourse" : "အကောင်းဆုံးသင်တန်းများကို လေ့လာပါ။",
         "aboutcourse":"သင်တန်းအကြောင်း"
     }

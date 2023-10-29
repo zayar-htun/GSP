@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import Checkout from "./pages/Checkout.jsx";
 import EnrolledCourse from "./pages/EnrolledCourse.jsx";
 import ViewEnrolledCourse from "./pages/ViewEnrolledCourse.jsx";
+import TeacherRegister from "./pages/TeacherRegister.jsx";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
             {
                 path: "/viewenrolledcourse/:id",
                 element: <ViewEnrolledCourse/>
+            },
+            {
+                path: "/teacherregister",
+                element: <TeacherRegister/>
             }
         ],
     },

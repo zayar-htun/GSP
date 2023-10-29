@@ -50,7 +50,7 @@ export default function AboutReview() {
                                     <Typography variant="h6">Date</Typography>
                                 </Box>
                             </Box>
-                            <Rating name="read-only" value={4} readOnly />
+                            {/* <Rating name="read-only" value={4} readOnly /> */}
                             <Typography variant="body1">
                                 Lorem ipsum dolor sit amet consectetur. Pharetra
                                 fermentum risus ac id. Aenean purus enim neque
@@ -75,7 +75,7 @@ export default function AboutReview() {
                                     <Typography variant="h6">Date</Typography>
                                 </Box>
                             </Box>
-                            <Rating name="read-only" value={4} readOnly />
+                            {/* <Rating name="read-only" value={4} readOnly /> */}
                             <Typography variant="body1">
                                 Lorem ipsum dolor sit amet consectetur. Pharetra
                                 fermentum risus ac id. Aenean purus enim neque
@@ -100,7 +100,7 @@ export default function AboutReview() {
                                     <Typography variant="h6">Date</Typography>
                                 </Box>
                             </Box>
-                            <Rating name="read-only" value={4} readOnly />
+                            {/* <Rating name="read-only" value={4} readOnly /> */}
                             <Typography variant="body1">
                                 Lorem ipsum dolor sit amet consectetur. Pharetra
                                 fermentum risus ac id. Aenean purus enim neque
@@ -125,7 +125,7 @@ export default function AboutReview() {
                                     <Typography variant="h6">Date</Typography>
                                 </Box>
                             </Box>
-                            <Rating name="read-only" value={4} readOnly />
+                            {/* <Rating name="read-only" value={4} readOnly /> */}
                             <Typography variant="body1">
                                 Lorem ipsum dolor sit amet consectetur. Pharetra
                                 fermentum risus ac id. Aenean purus enim neque
@@ -150,7 +150,7 @@ export default function AboutReview() {
                                     <Typography variant="h6">Date</Typography>
                                 </Box>
                             </Box>
-                            <Rating name="read-only" value={4} readOnly />
+                            {/* <Rating name="read-only" value={4} readOnly /> */}
                             <Typography variant="body1">
                                 Lorem ipsum dolor sit amet consectetur. Pharetra
                                 fermentum risus ac id. Aenean purus enim neque
@@ -171,16 +171,13 @@ export default function AboutReview() {
                         e.preventDefault();
                     }}
                 >
-                    <Typography>
-                        Give Rating Stars
-                    </Typography>
-                    <Rating
+                    {/* <Rating
                         name="simple-controlled"
                         value={value}
                         onChange={(event, newValue) => {
                             setValue(newValue);
                         }}
-                    />
+                    /> */}
                     <Input
                         inputRef={input}
                         sx={{ fontSize: "16px", py: 2 }}

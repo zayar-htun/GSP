@@ -7,7 +7,7 @@ import { useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-export default function SlickBestCourse() {
+export default function SlickBestCourse({bestCourses}) {
     const [courseLists, setCourseLists] = useState([
         {
             _id: 1,
@@ -73,6 +73,7 @@ export default function SlickBestCourse() {
     const isLargeScreen = useMediaQuery(theme => theme.breakpoints.up("lg"));
     const isTablet = useMediaQuery(theme => theme.breakpoints.up("sm"));
 
+
     // Set the slidesToShow value based on the screen size
     const slidesToShow = isLargeScreen ? 3 : isTablet ? 2 : 1;
 
@@ -89,7 +90,7 @@ export default function SlickBestCourse() {
     return (
         <Box>
             <Slider {...settings}>
-                {courseLists.map(course => (
+                {bestCourses?.map(course => (
                     <Box key={course._id}>
                         <Card
                             sx={{
@@ -101,24 +102,26 @@ export default function SlickBestCourse() {
                             <CardMedia
                                 component="img"
                                 height="260"
-                                image={course.logo} // Use the course's logo as the image
+                                image={`"${course.thumb}"`}  // Use the course's logo as the image
                                 alt={course.name}
                                 onClick={() => {
                                     navigate(`/coursedetail/${course._id}`);
                                 }}
+                                
                             />
+                            {console.log(`"${course.thumb}"`)}
                         </Card>
                         <Typography
                             variant="h4"
                             sx={{ margin: 1, marginBottom: 0 }}
                         >
-                            {course.name}
+                            {course.title}
                         </Typography>
                         <Typography
                             variant="h6"
                             sx={{ margin: 1, marginTop: 0, marginBottom: 3 }}
                         >
-                            Programming
+                            {course.category}
                         </Typography>
                     </Box>
                 ))}

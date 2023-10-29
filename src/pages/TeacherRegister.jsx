@@ -1,23 +1,32 @@
-import { Alert, Avatar, Box, Button, Container, IconButton, OutlinedInput } from "@mui/material";
+import {
+    Alert,
+    Avatar,
+    Box,
+    Button,
+    Container,
+    IconButton,
+    OutlinedInput,
+} from "@mui/material";
 import { pink } from "@mui/material/colors";
 import { useContext } from "react";
 import { themeContext } from "../ThemedApp";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useRef } from "react";
-import { getStuRegister } from "../apicalls";
+import { getTeaRegister } from "../apicalls";
 
-export default function Register() {
+export default function TeacherRegister() {
     const { translate } = useContext(themeContext);
     const navigate = useNavigate();
 
     const [photo, setPhoto] = useState("");
     const [hasError, setHasError] = useState(false);
-    
+
     const nameInput = useRef();
     const emailInput = useRef();
     const profileInput = useRef();
     const passwordInput = useRef();
+    const bioInput = useRef();
 
     const getFile = async () => {
         const [fileHandle] = await window.showOpenFilePicker({
@@ -40,7 +49,8 @@ export default function Register() {
         const file = await getFile();
         setPhoto(URL.createObjectURL(file));
 
-        const fileName = file.type === "image/png" ? `-photo.png` : `-photo.jpg`;
+        const fileName =
+            file.type === "image/png" ? `-photo.png` : `-photo.jpg`;
 
         const formData = new FormData();
         formData.append("photo", file, fileName);
@@ -48,14 +58,13 @@ export default function Register() {
         formData.append("email", emailInput.current.value);
         formData.append("profile", profileInput.current.value);
         formData.append("password", passwordInput.current.value);
+        formData.append("bio", bioInput.current.value);
 
         formData.forEach((value, key) => {
             console.log(key, value);
         });
 
-        getStuRegister(formData);
-
-
+        getTeaRegister(formData);
     };
 
     return (
@@ -69,10 +78,10 @@ export default function Register() {
                     )}
 
                     <form
-                        onSubmit={async (e) => {
+                        onSubmit={async e => {
                             e.preventDefault();
                             // Call the changePhoto function to set up the formData
-                          navigate(`/login`);
+                            navigate(`/login`);
                         }}
                     >
                         <Box
@@ -130,6 +139,13 @@ export default function Register() {
                             inputProps={{ type: "password" }}
                             sx={{ mb: 3 }}
                         />
+                        <OutlinedInput
+                            required
+                            inputRef={bioInput}
+                            placeholder={translate.bio}
+                            fullWidth={true}
+                            sx={{ mb: 3 }}
+                        />
 
                         <Container>
                             <Button
@@ -138,7 +154,7 @@ export default function Register() {
                                 color="info"
                                 fullWidth={true}
                             >
-                                {translate.register}
+                                Apply Teacher Form
                             </Button>
                         </Container>
                     </form>

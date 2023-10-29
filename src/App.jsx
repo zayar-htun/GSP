@@ -13,7 +13,11 @@ export default function App() {
         setShowDrawer(!showDrawer);
     };
 
-    const shouldShowFooter = location.pathname !== "/login" && location.pathname !== "/register" && location.pathname !== "/dashboard";
+    const shouldShowFooter =
+        location.pathname !== "/login" &&
+        location.pathname !== "/register" &&
+        location.pathname !== "/dashboard" &&
+        location.pathname !== "/teacherregister";
 
     return (
         <>

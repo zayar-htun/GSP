@@ -2,9 +2,24 @@ import { Box, Typography } from "@mui/material";
 import SlickBestCourse from "./SlickBestCourse";
 import { useContext } from "react";
 import { themeContext } from "../../ThemedApp";
+import { useState } from "react";
+import { useEffect } from "react";
+import { getBestCourse } from "../../apicalls";
 
 export default function BestCourse() {
     const { translate } = useContext(themeContext);
+    const [bestCourses,setBestCourses] = useState([]);
+
+    useEffect(()=>{
+        (
+            async()=>{
+                const result = await getBestCourse();
+
+                setBestCourses(result);
+            }
+        )();
+    },[]);
+
     return (
         <Box sx={{mx: { lg: 6, md: 3 }, my: { lg: 3, md: 2 }}}>
             <Typography
@@ -33,7 +48,7 @@ export default function BestCourse() {
                     paddingRight: 2,
                     paddingBottom: 3,
                 }}>
-                <SlickBestCourse />
+                <SlickBestCourse bestCourses={bestCourses}/>
             </Box>
         </Box>
     );

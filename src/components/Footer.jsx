@@ -10,10 +10,12 @@ import {
     Typography,
 } from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import ContactsIcon from '@mui/icons-material/Contacts';
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import ContactsIcon from "@mui/icons-material/Contacts";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
+    const navigate = useNavigate();
     return (
         <Box sx={{ bgcolor: "buttonColor.backgroundColor" }}>
             <Box sx={{ mx: 9 }}>
@@ -28,27 +30,44 @@ export default function Footer() {
                         sx={{ display: "flex", justifyContent: "space-around" }}
                     >
                         <Box>
-                            <Typography variant="h5" sx={{color:"whitesmoke"}}>Logo</Typography>
+                            <Typography
+                                variant="h5"
+                                sx={{ color: "whitesmoke" }}
+                            >
+                                Logo
+                            </Typography>
                             <List>
                                 <ListItem disablePadding>
-                                    <ListItemButton sx={{color:"whitesmoke"}}>
-                                        <ListItemIcon sx={{color:"whitesmoke"}}>
+                                    <ListItemButton
+                                        sx={{ color: "whitesmoke" }}
+                                    >
+                                        <ListItemIcon
+                                            sx={{ color: "whitesmoke" }}
+                                        >
                                             <MailIcon />
                                         </ListItemIcon>
                                         <ListItemText primary="Email" />
                                     </ListItemButton>
                                 </ListItem>
                                 <ListItem disablePadding>
-                                    <ListItemButton sx={{color:"whitesmoke"}}>
-                                        <ListItemIcon sx={{color:"whitesmoke"}}>
+                                    <ListItemButton
+                                        sx={{ color: "whitesmoke" }}
+                                    >
+                                        <ListItemIcon
+                                            sx={{ color: "whitesmoke" }}
+                                        >
                                             <LocalPhoneIcon />
                                         </ListItemIcon>
                                         <ListItemText primary="Phone" />
                                     </ListItemButton>
                                 </ListItem>
                                 <ListItem disablePadding>
-                                    <ListItemButton sx={{color:"whitesmoke"}}>
-                                        <ListItemIcon sx={{color:"whitesmoke"}}>
+                                    <ListItemButton
+                                        sx={{ color: "whitesmoke" }}
+                                    >
+                                        <ListItemIcon
+                                            sx={{ color: "whitesmoke" }}
+                                        >
                                             <ContactsIcon />
                                         </ListItemIcon>
                                         <ListItemText primary="Contacts" />
@@ -56,11 +75,34 @@ export default function Footer() {
                                 </ListItem>
                             </List>
                         </Box>
-                        <Box sx={{display:"block"}}>
-                            <Button variant="text"  sx={{color:"whitesmoke",display:"block"}}>Teach on Udemy</Button>
-                            <Button variant="text"  sx={{color:"whitesmoke",display:"block"}}>About Us</Button>
-                            <Button variant="text"  sx={{color:"whitesmoke",display:"block"}}>Contact Us</Button>
-                            <Button variant="text"  sx={{color:"whitesmoke",display:"block"}}>Terms and Conditions</Button>
+                        <Box sx={{ display: "block" }}>
+                            <Button
+                                variant="text"
+                                sx={{ color: "whitesmoke", display: "block" }}
+                                onClick={() => {
+                                    navigate(`/teacherregister`);
+                                }}
+                            >
+                                Teach on Udemy
+                            </Button>
+                            <Button
+                                variant="text"
+                                sx={{ color: "whitesmoke", display: "block" }}
+                            >
+                                About Us
+                            </Button>
+                            <Button
+                                variant="text"
+                                sx={{ color: "whitesmoke", display: "block" }}
+                            >
+                                Contact Us
+                            </Button>
+                            <Button
+                                variant="text"
+                                sx={{ color: "whitesmoke", display: "block" }}
+                            >
+                                Terms and Conditions
+                            </Button>
                         </Box>
                     </Box>
                 </Container>

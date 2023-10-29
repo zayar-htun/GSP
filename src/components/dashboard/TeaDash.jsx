@@ -6,6 +6,8 @@ import PieChartDash from "./charts/PieChartDash";
 import BarChartDash from "./charts/BarChartDash";
 import LineChartDash from "./charts/LineChartDash";
 import ViewAllCourses from "./comforTea/ViewAllCourses";
+import ViewAllReview from "./comforTea/ViewAllReview";
+import AddCourse from "./AddCourse";
 
 function TeaDash() {
     return (
@@ -108,13 +110,23 @@ function TeaDash() {
               <BarChartDash/>
             </Box>
             <Divider sx={{my:2}}/>
+            
             <Box>
               <LineChartDash/>
             </Box>
             <Divider sx={{my:2}}/>
             <Box>
+              <AddCourse/>
+            </Box>
+            <Divider sx={{my:2}}/>
+            <Box>
               <Typography variant="h5">View All Courses</Typography>
               <ViewAllCourses/>
+            </Box>
+            <Divider sx={{my:2}}/>
+            <Box>
+              <Typography variant="h5">View All Reviews</Typography>
+              <ViewAllReview/>
             </Box>
             <Divider sx={{my:2}}/>
             
