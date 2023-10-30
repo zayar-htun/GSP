@@ -10,13 +10,19 @@ import {
 import { green } from "@mui/material/colors";
 import LoginIcon from "@mui/icons-material/Login";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import CastForEducationIcon from '@mui/icons-material/CastForEducation';
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import CastForEducationIcon from "@mui/icons-material/CastForEducation";
 import { useLocation, useNavigate } from "react-router-dom";
+import { themeContext } from "../ThemedApp";
+import { useContext } from "react";
 
 export default function MainDrawer({ showDrawer, toggleDrawer }) {
     const navigate = useNavigate();
     const location = useLocation();
+    const { authUser } = useContext(themeContext);
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+
+    // console.log(storedUser.user.role);
 
     return (
         <Box>
@@ -57,28 +63,32 @@ export default function MainDrawer({ showDrawer, toggleDrawer }) {
                             </ListItemIcon>
                             <ListItemText primary="Login" />
                         </ListItemButton>
-                        <ListItemButton
-                            onClick={() => {
-                                navigate("/dashboard");
-                                toggleDrawer();
-                            }}
-                        >
-                            <ListItemIcon>
-                                <DashboardIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Dashboard" />
-                        </ListItemButton>
-                        <ListItemButton
-                            onClick={() => {
-                                navigate("/enrolledCourse");
-                                toggleDrawer();
-                            }}
-                        >
-                            <ListItemIcon>
-                                <CastForEducationIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Enrolled Courses" />
-                        </ListItemButton>
+                        {storedUser.user.role === "Teacher" && (
+                            <ListItemButton
+                                onClick={() => {
+                                    navigate("/dashboard");
+                                    toggleDrawer();
+                                }}
+                            >
+                                <ListItemIcon>
+                                    <DashboardIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Dashboard" />
+                            </ListItemButton>
+                        )}
+                        {storedUser.user.role === "Student" && (
+                            <ListItemButton
+                                onClick={() => {
+                                    navigate("/enrolledCourse");
+                                    toggleDrawer();
+                                }}
+                            >
+                                <ListItemIcon>
+                                    <CastForEducationIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Enrolled Courses" />
+                            </ListItemButton>
+                        )}
                     </List>
                 </Box>
             </Drawer>

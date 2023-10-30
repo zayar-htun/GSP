@@ -1,7 +1,7 @@
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { createContext, useMemo, useState, useEffect } from "react";
 import App from "./App";
-import {  grey } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 
 export const themeContext = createContext();
 export const UIContext = createContext();
@@ -14,6 +14,8 @@ export default function ThemedApp() {
 
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackMessage, setSnackMessage] = useState("");
+    const [auth, setAuth] = useState(false);
+    const [authUser, setAuthUser] = useState({});
 
     const theme = useMemo(() => {
         return createTheme({
@@ -34,8 +36,8 @@ export default function ThemedApp() {
                               background: "#FAFAFA",
                           },
                           buttonColor: {
-                            backgroundColor: "#486284"
-                          }
+                              backgroundColor: "#486284",
+                          },
                       }
                     : {
                           banner: {
@@ -51,8 +53,8 @@ export default function ThemedApp() {
                               background: "#333333",
                           },
                           buttonColor: {
-                            backgroundColor: "#cccccc"
-                          }
+                              backgroundColor: "#cccccc",
+                          },
                       }),
             },
         });
@@ -64,7 +66,7 @@ export default function ThemedApp() {
 
     return (
         <themeContext.Provider
-            value={{ mode, setMode, translate, setTranslate }}
+            value={{ mode, setMode, translate, setTranslate ,auth, setAuth,authUser, setAuthUser }}
         >
             <ThemeProvider theme={theme}>
                 <UIContext.Provider
@@ -72,7 +74,7 @@ export default function ThemedApp() {
                         snackbarOpen,
                         setSnackbarOpen,
                         snackMessage,
-                        setSnackMessage,
+                        setSnackMessage
                     }}
                 >
                     <CssBaseline />

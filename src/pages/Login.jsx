@@ -11,9 +11,9 @@ import {
 
 import { useNavigate } from "react-router-dom";
 import { UIContext, themeContext } from "../ThemedApp";
+import { getLogin } from "../apicalls";
 
 export default function Login() {
-    const { setSnackbarOpen, setSnackMessage } = useContext(UIContext);
     const navigate = useNavigate();
 
     const emailInput = useRef();
@@ -21,7 +21,7 @@ export default function Login() {
 
     const [hasError, setHasError] = useState(false);
 
-    const { translate } = useContext(themeContext);
+    const { translate, setAuth, setAuthUser } = useContext(themeContext);
 
     return (
         <Container>
@@ -42,6 +42,23 @@ export default function Login() {
                 <form
                     onSubmit={e => {
                         e.preventDefault();
+                        setHasError(false);
+
+                        const email = emailInput.current.value;
+                        const password = passwordInput.current.value;
+
+                        (async () => {
+                            const user = await getLogin(email, password);
+
+                            if (!user) {
+                                setHasError(true);
+                            } else {
+                                setAuth(true);
+                                setAuthUser(user);
+                                localStorage.setItem("user",JSON.stringify(user))
+                                navigate("/");
+                            }
+                        })();
                     }}
                 >
                     <OutlinedInput

@@ -80,7 +80,7 @@ export default function Register() {
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
-                                mb: 8,
+                                mb: 8, 
                                 mt: 3,
                             }}
                         >
