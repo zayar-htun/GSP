@@ -2,19 +2,25 @@ import {
     Box,
     Button,
     Container,
+    Divider,
     IconButton,
     OutlinedInput,
     Typography,
 } from "@mui/material";
 import { FileUpload as FileUploadIcon } from "@mui/icons-material";
 import { useRef, useState } from "react";
-import { getUploadModule } from "../../apicalls";
+import { getUploadCourse, getUploadModule } from "../../apicalls";
 
 function AddCourse() {
     const titleInput = useRef();
     const desInput = useRef();
+    const courseTitleInput = useRef();
+    const courseDesInput = useRef();
+    const courseCategoryInput = useRef();
+    const coursePriceInput = useRef();
     const [uploadIds, setUploadIds] = useState([]);
     const [video, setVideo] = useState("");
+    const [thumb, setThumb] = useState("");
 
     const getFile = async () => {
         const [fileHandle] = await window.showOpenFilePicker({
@@ -33,7 +39,24 @@ function AddCourse() {
         return await fileHandle.getFile();
     };
 
-    const changePhoto = async e => {
+    const getFileCourse = async () => {
+        const [fileHandle] = await window.showOpenFilePicker({
+            types: [
+                {
+                    description: "Images",
+                    accept: {
+                        "image/*": [".png", ".jpeg", ".jpg"],
+                    },
+                },
+            ],
+            excludeAcceptAllOption: true,
+            multiple: false,
+        });
+
+        return await fileHandle.getFile();
+    };
+
+    const changeVideo = async e => {
         const file = await getFile();
         setVideo(URL.createObjectURL(file));
 
@@ -54,6 +77,31 @@ function AddCourse() {
                 setUploadIds([...uploadIds, response]);
             }
         });
+
+        console.log(uploadIds);
+    };
+
+    const changePhoto = async e => {
+        const file = await getFileCourse();
+        setThumb(URL.createObjectURL(file));
+
+        const fileName = file.type === "image/png" ? `-photo.png` : `-photo.jpg`;
+
+        const formData = new FormData();
+        formData.append("photo", file, fileName);
+        formData.append("title", courseTitleInput.current.value);
+        formData.append("description", courseDesInput.current.value);
+        formData.append("category", courseCategoryInput.current.value);
+        formData.append("price", coursePriceInput.current.value);
+        formData.append("modules", uploadIds);
+
+        formData.forEach((value, key) => {
+            console.log(key, value);
+        });
+
+        getUploadCourse(formData);
+
+
     };
 
     return (
@@ -79,7 +127,6 @@ function AddCourse() {
 
                         titleInput.current.value = "";
                         desInput.current.value = "";
-                        
                     }}
                 >
                     <OutlinedInput
@@ -107,7 +154,7 @@ function AddCourse() {
                             height: "200px",
                             width: "100%",
                         }}
-                        onClick={changePhoto}
+                        onClick={changeVideo}
                     >
                         <Typography>Upload Video</Typography>
                         <IconButton>
@@ -127,15 +174,77 @@ function AddCourse() {
                         </Button>
                     </Box>
                 </form>
+                <Divider />
                 <Container>
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color="info"
-                        fullWidth={true}
+                    <Typography
+                        variant="h4"
+                        sx={{ textAlign: "center", mb: 3, margin: 2 ,mt:3, fontWeight:"bold"}}
                     >
-                        Add Courses
-                    </Button>
+                        Upload Course
+                    </Typography>
+                    <form onSubmit={async e => {
+                        e.preventDefault();
+
+                        courseTitleInput.current.value = "";
+                        courseDesInput.current.value = "";
+                        courseCategoryInput.current.value = "";
+                        coursePriceInput.current.value = "";
+                        setUploadIds([]);
+                    }}>
+                        <OutlinedInput
+                            required
+                            inputRef={courseTitleInput}
+                            placeholder="Course Title"
+                            fullWidth={true}
+                            sx={{ mb: 2 }}
+                        />
+                        <OutlinedInput
+                            required
+                            inputRef={courseDesInput}
+                            placeholder="Course Description"
+                            fullWidth={true}
+                            sx={{ mb: 2 }}
+                        />
+                        <OutlinedInput
+                            required
+                            inputRef={courseCategoryInput}
+                            placeholder="Course Category"
+                            fullWidth={true}
+                            sx={{ mb: 2 }}
+                        />
+                        <OutlinedInput
+                            required
+                            inputRef={coursePriceInput}
+                            placeholder="Course Price"
+                            fullWidth={true}
+                            sx={{ mb: 2 }}
+                        />
+                        <Box
+                            sx={{
+                                bgcolor: "banner.background",
+                                height: 200,
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                m: 2,
+                            }}
+                            onClick={changePhoto}
+                        >
+                            <IconButton>
+                                <FileUploadIcon />
+                            </IconButton>
+                            <img src={thumb} alt="" style={{ width: "100%" }} />
+                        </Box>
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="info"
+                            fullWidth={true}
+                        >
+                            Add Courses
+                        </Button>
+                    </form>
                 </Container>
             </Box>
         </Box>

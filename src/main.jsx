@@ -12,6 +12,7 @@ import Checkout from "./pages/Checkout.jsx";
 import EnrolledCourse from "./pages/EnrolledCourse.jsx";
 import ViewEnrolledCourse from "./pages/ViewEnrolledCourse.jsx";
 import TeacherRegister from "./pages/TeacherRegister.jsx";
+import ChatRoom from "./pages/ChatRoom.jsx";
 
 const router = createBrowserRouter([
     {
@@ -32,32 +33,36 @@ const router = createBrowserRouter([
             },
             {
                 path: "/allcourses",
-                element: <AllCourses/>
+                element: <AllCourses />,
             },
             {
                 path: "/coursedetail/:id",
-                element: <CourseDetail/>
+                element: <CourseDetail />,
             },
             {
                 path: "/dashboard",
-                element: <Dashboard/>
+                element: <Dashboard />,
             },
             {
                 path: "/checkout/:id",
-                element: <Checkout/>
+                element: <Checkout />,
             },
             {
                 path: "/enrolledCourse",
-                element: <EnrolledCourse/>
+                element: <EnrolledCourse />,
             },
             {
                 path: "/viewenrolledcourse/:id",
-                element: <ViewEnrolledCourse/>
+                element: <ViewEnrolledCourse />,
             },
             {
                 path: "/teacherregister",
-                element: <TeacherRegister/>
-            }
+                element: <TeacherRegister />,
+            },
+            {
+                path: "/chatroom",
+                element: <ChatRoom />,
+            },
         ],
     },
 ]);

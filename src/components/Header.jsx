@@ -131,7 +131,7 @@ export default function Header({ toggleDrawer }) {
                     aria-label="show 4 new mails"
                     color="inherit"
                 >
-                    <Badge badgeContent={4} color="error">
+                    <Badge color="secondary" variant="dot">
                         <MailIcon />
                     </Badge>
                 </IconButton>
@@ -167,7 +167,7 @@ export default function Header({ toggleDrawer }) {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{bgcolor: "appbar.background"}}>
+            <AppBar position="static" sx={{ bgcolor: "appbar.background" }}>
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -184,7 +184,7 @@ export default function Header({ toggleDrawer }) {
                         noWrap
                         component="div"
                         sx={{ display: { xs: "none", sm: "block" } }}
-                        onClick={()=>{
+                        onClick={() => {
                             navigate(`/`);
                         }}
                     >
@@ -207,8 +207,11 @@ export default function Header({ toggleDrawer }) {
                             size="large"
                             aria-label="show 4 new mails"
                             color="inherit"
+                            onClick={()=>{
+                                navigate(`/chatroom`)
+                            }}
                         >
-                            <Badge badgeContent={4} color="error">
+                            <Badge color="error" variant="dot">
                                 <MailIcon />
                             </Badge>
                         </IconButton>
