@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 
-export default function AboutInstructor() {
+export default function AboutInstructor({ courseDetail }) {
     return (
         <Box>
             <Grid container spacing={2}>
@@ -24,11 +24,19 @@ export default function AboutInstructor() {
                 </Grid>
                 <Grid xs={9}>
                     <Typography>
-                        <Typography gutterBottom variant="h3" component="div">
-                            Name
+                        <Typography gutterBottom variant="h4" component="div">
+                            Name :{" "}
+                            {courseDetail?.teacher &&
+                            courseDetail.teacher.length > 0
+                                ? courseDetail.teacher[0].username
+                                : "Unknown"}
                         </Typography>
                         <Typography variant="h5" sx={{ paddingTop: "5px" }}>
-                            Role
+                            Role :{" "}
+                            {courseDetail?.teacher &&
+                            courseDetail.teacher.length > 0
+                                ? courseDetail.teacher[0].role
+                                : "Unknown"}
                         </Typography>
                         <Box>
                             <List>
@@ -37,13 +45,23 @@ export default function AboutInstructor() {
                                         <ListItemIcon>
                                             <SchoolIcon />
                                         </ListItemIcon>
-                                        <ListItemText primary="(9) courses" />
+                                        <ListItemText
+                                            primary={
+                                                courseDetail?.teacher &&
+                                                courseDetail.teacher.length > 0
+                                                    ? courseDetail.teacher[0]
+                                                          .courses.length +
+                                                      " courses"
+                                                    : "Unknown"
+                                            }
+                                        />
                                     </ListItemButton>
                                 </ListItem>
                             </List>
                         </Box>
                         <Typography variant="body2" gutterBottom>
-                            ★ 4 (200 reviews)
+                            ★ {courseDetail?.rating}{" "}
+                            {courseDetail?.comments.length}   reviews
                         </Typography>
                     </Typography>
                 </Grid>

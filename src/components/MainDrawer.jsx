@@ -63,7 +63,7 @@ export default function MainDrawer({ showDrawer, toggleDrawer }) {
                             </ListItemIcon>
                             <ListItemText primary="Login" />
                         </ListItemButton>
-                        {storedUser.user.role === "Teacher" && (
+                        {storedUser.user?.role === "Teacher" && (
                             <ListItemButton
                                 onClick={() => {
                                     navigate("/dashboard");
@@ -76,7 +76,7 @@ export default function MainDrawer({ showDrawer, toggleDrawer }) {
                                 <ListItemText primary="Dashboard" />
                             </ListItemButton>
                         )}
-                        {storedUser.user.role === "Student" && (
+                        {storedUser.user?.role === "Student" && (
                             <ListItemButton
                                 onClick={() => {
                                     navigate("/enrolledCourse");

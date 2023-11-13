@@ -1,19 +1,25 @@
 import { Avatar, Box, Card, Divider, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function ChatRoom() {
+    const navigate = useNavigate();
     return (
         <Box>
-            <Card sx={{ m: 1 }}>
-                <Box sx={{ display: "flex", alignItems: "center", p: 4 }}>
-                    <Avatar
-                        alt="Remy Sharp"
-                        src="/static/images/avatar/1.jpg"
-                        sx={{ mr: 2, width: 56, height: 56 }}
-                    />
-                    <Typography variant="h4">Inbox Messages</Typography>
-                </Box>
-            </Card>
-            <Card sx={{ m: 1 }}>
+            <Box
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    p: 4,
+                }}
+            >
+                <Typography variant="h4">
+                    <b>Inbox Messages</b>
+                </Typography>
+            </Box>
+            <Card sx={{ m: 1, cursor: "pointer" }} onClick={()=>{
+                                navigate(`/chatmessage`)
+                            }} >
                 <Box sx={{ display: "flex", alignItems: "center", p: 4 }}>
                     <Box>
                         <Avatar
@@ -30,7 +36,8 @@ export default function ChatRoom() {
                         </Typography>
                     </Box>
                 </Box>
-                <Divider />
+            </Card>
+            <Card sx={{ m: 1, cursor: "pointer" }}>
                 <Box sx={{ display: "flex", alignItems: "center", p: 4 }}>
                     <Box>
                         <Avatar

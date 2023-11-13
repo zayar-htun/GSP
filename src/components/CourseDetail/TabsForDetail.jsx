@@ -42,7 +42,7 @@ function a11yProps(index) {
     };
 }
 
-export default function TabsForDetail() {
+export default function TabsForDetail({courseDetail}) {
     const [value, setValue] = React.useState(0);
     const { translate } = React.useContext(themeContext);
 
@@ -68,10 +68,10 @@ export default function TabsForDetail() {
                 <AboutCourse />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
-                <AboutInstructor />
+                <AboutInstructor courseDetail={courseDetail}/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
-                <AboutReview />
+                <AboutReview courseDetail={courseDetail}/>
             </CustomTabPanel>
         </Box>
     );

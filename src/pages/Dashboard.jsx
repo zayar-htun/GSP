@@ -156,7 +156,7 @@ export default function Dashboard() {
                                 <DashboardIcon />
                             </ListItemIcon>
                             <ListItemText
-                                primary="Hello World"
+                                primary="Dashboard"
                                 sx={{ opacity: open ? 1 : 0 }}
                             />
                         </ListItemButton>
@@ -179,7 +179,7 @@ export default function Dashboard() {
                                 <CastForEducationIcon />
                             </ListItemIcon>
                             <ListItemText
-                                primary="Shorts"
+                                primary="Upload Course"
                                 sx={{ opacity: open ? 1 : 0 }}
                             />
                         </ListItemButton>

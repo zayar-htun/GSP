@@ -74,7 +74,7 @@ function AddCourse() {
 
         getUploadModule(formData).then(response => {
             if (response) {
-                setUploadIds([...uploadIds, response]);
+                setUploadIds([...uploadIds, response._id]);
             }
         });
 
@@ -120,6 +120,9 @@ function AddCourse() {
                     No module is uploaded yet!!!{" "}
                 </Typography>
             )}
+            {
+                console.log(uploadIds)
+            }
             <Box sx={{ m: 2 }}>
                 <form
                     onSubmit={async e => {

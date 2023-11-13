@@ -12,9 +12,12 @@ import {
 } from "@mui/material";
 import { AddComment as AddCommentIcon } from "@mui/icons-material";
 import { useRef, useState } from "react";
+import { getUploadComment } from "../../../apicalls";
+import { useParams } from "react-router-dom";
 
-export default function AboutReview() {
+export default function AboutReview({ courseDetail }) {
     const input = useRef();
+
     const [value, setValue] = useState(0);
     return (
         <Box>
@@ -33,134 +36,36 @@ export default function AboutReview() {
                             lineHeight: "38.4px",
                         }}
                     >
-                        Reviews
+                        Comments
                     </Typography>
                     <Box>
-                        <Card sx={{ boxShadow: 0 }}>
-                            <Box sx={{ display: "flex", margin: 2 }}>
-                                <Box>
-                                    <Avatar
-                                        alt="Remy Sharp"
-                                        src="/src/assets/Instructor/1675313538107.jpeg"
-                                        sx={{ width: 82, height: 82 }}
-                                    />
-                                </Box>
-                                <Box sx={{ marginLeft: "10px" }}>
-                                    <Typography variant="h4">Name</Typography>
-                                    <Typography variant="h6">Date</Typography>
-                                </Box>
-                            </Box>
-                            {/* <Rating name="read-only" value={4} readOnly /> */}
-                            <Typography variant="body1">
-                                Lorem ipsum dolor sit amet consectetur. Pharetra
-                                fermentum risus ac id. Aenean purus enim neque
-                                amet pellentesque nunc a vestibulum. Sed neque
-                                ultrices neque lectus tempus orci. Auctor et
-                                magna habitant volutpat elit eget tempus
-                                adipiscing dignissim.
-                            </Typography>
-                            <Divider sx={{ my: 2 }} />
-                        </Card>
-                        <Card sx={{ boxShadow: 0 }}>
-                            <Box sx={{ display: "flex", margin: 2 }}>
-                                <Box>
-                                    <Avatar
-                                        alt="Remy Sharp"
-                                        src="/src/assets/Instructor/1675313538107.jpeg"
-                                        sx={{ width: 82, height: 82 }}
-                                    />
-                                </Box>
-                                <Box sx={{ marginLeft: "10px" }}>
-                                    <Typography variant="h4">Name</Typography>
-                                    <Typography variant="h6">Date</Typography>
-                                </Box>
-                            </Box>
-                            {/* <Rating name="read-only" value={4} readOnly /> */}
-                            <Typography variant="body1">
-                                Lorem ipsum dolor sit amet consectetur. Pharetra
-                                fermentum risus ac id. Aenean purus enim neque
-                                amet pellentesque nunc a vestibulum. Sed neque
-                                ultrices neque lectus tempus orci. Auctor et
-                                magna habitant volutpat elit eget tempus
-                                adipiscing dignissim.
-                            </Typography>
-                            <Divider sx={{ my: 2 }} />
-                        </Card>
-                        <Card sx={{ boxShadow: 0 }}>
-                            <Box sx={{ display: "flex", margin: 2 }}>
-                                <Box>
-                                    <Avatar
-                                        alt="Remy Sharp"
-                                        src="/src/assets/Instructor/1675313538107.jpeg"
-                                        sx={{ width: 82, height: 82 }}
-                                    />
-                                </Box>
-                                <Box sx={{ marginLeft: "10px" }}>
-                                    <Typography variant="h4">Name</Typography>
-                                    <Typography variant="h6">Date</Typography>
-                                </Box>
-                            </Box>
-                            {/* <Rating name="read-only" value={4} readOnly /> */}
-                            <Typography variant="body1">
-                                Lorem ipsum dolor sit amet consectetur. Pharetra
-                                fermentum risus ac id. Aenean purus enim neque
-                                amet pellentesque nunc a vestibulum. Sed neque
-                                ultrices neque lectus tempus orci. Auctor et
-                                magna habitant volutpat elit eget tempus
-                                adipiscing dignissim.
-                            </Typography>
-                            <Divider sx={{ my: 2 }} />
-                        </Card>
-                        <Card sx={{ boxShadow: 0 }}>
-                            <Box sx={{ display: "flex", margin: 2 }}>
-                                <Box>
-                                    <Avatar
-                                        alt="Remy Sharp"
-                                        src="/src/assets/Instructor/1675313538107.jpeg"
-                                        sx={{ width: 82, height: 82 }}
-                                    />
-                                </Box>
-                                <Box sx={{ marginLeft: "10px" }}>
-                                    <Typography variant="h4">Name</Typography>
-                                    <Typography variant="h6">Date</Typography>
-                                </Box>
-                            </Box>
-                            {/* <Rating name="read-only" value={4} readOnly /> */}
-                            <Typography variant="body1">
-                                Lorem ipsum dolor sit amet consectetur. Pharetra
-                                fermentum risus ac id. Aenean purus enim neque
-                                amet pellentesque nunc a vestibulum. Sed neque
-                                ultrices neque lectus tempus orci. Auctor et
-                                magna habitant volutpat elit eget tempus
-                                adipiscing dignissi.
-                            </Typography>
-                            <Divider sx={{ my: 2 }} />
-                        </Card>
-                        <Card sx={{ boxShadow: 0 }}>
-                            <Box sx={{ display: "flex", margin: 2 }}>
-                                <Box>
-                                    <Avatar
-                                        alt="Remy Sharp"
-                                        src="/src/assets/Instructor/1675313538107.jpeg"
-                                        sx={{ width: 82, height: 82 }}
-                                    />
-                                </Box>
-                                <Box sx={{ marginLeft: "10px" }}>
-                                    <Typography variant="h4">Name</Typography>
-                                    <Typography variant="h6">Date</Typography>
-                                </Box>
-                            </Box>
-                            {/* <Rating name="read-only" value={4} readOnly /> */}
-                            <Typography variant="body1">
-                                Lorem ipsum dolor sit amet consectetur. Pharetra
-                                fermentum risus ac id. Aenean purus enim neque
-                                amet pellentesque nunc a vestibulum. Sed neque
-                                ultrices neque lectus tempus orci. Auctor et
-                                magna habitant volutpat elit eget tempus
-                                adipiscing dignissim.
-                            </Typography>
-                            <Divider sx={{ my: 2 }} />
-                        </Card>
+                        {courseDetail.commentDetail.slice(0, 10).map(comment => {
+                            return (
+                                <Card sx={{ boxShadow: 0 }} key={comment._id}>
+                                    <Box sx={{ display: "flex", margin: 2 }}>
+                                        <Box sx={{ marginLeft: "10px" }}>
+                                            <Typography variant="h4">
+                                                Name :{" "}
+                                                {
+                                                    comment.commentUser[0]
+                                                        .username
+                                                }
+                                            </Typography>
+                                            <Typography variant="h6">
+                                                Date :{" "}
+                                                {new Date(
+                                                    comment.created_at
+                                                ).toLocaleDateString("en-GB")}
+                                            </Typography>
+                                        </Box>
+                                    </Box>
+                                    <Typography variant="body1">
+                                        {comment.text}
+                                    </Typography>
+                                    <Divider sx={{ my: 2 }} />
+                                </Card>
+                            );
+                        })}
                     </Box>
                 </Box>
             </Card>
@@ -169,15 +74,16 @@ export default function AboutReview() {
                 <form
                     onSubmit={e => {
                         e.preventDefault();
+                        const text = input.current.value;
+
+                        (async () => {
+                            const user = await getUploadComment(courseDetail._id, text);
+
+                            
+                        })();
+
                     }}
                 >
-                    {/* <Rating
-                        name="simple-controlled"
-                        value={value}
-                        onChange={(event, newValue) => {
-                            setValue(newValue);
-                        }}
-                    /> */}
                     <Input
                         inputRef={input}
                         sx={{ fontSize: "16px", py: 2 }}
@@ -193,7 +99,6 @@ export default function AboutReview() {
                             </InputAdornment>
                         }
                     />
-                    
                 </form>
             </FormControl>
         </Box>

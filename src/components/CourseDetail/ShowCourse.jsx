@@ -15,7 +15,7 @@ const Img = styled("img")({
     maxHeight: "100%",
 });
 
-export default function ShowCourse() {
+export default function ShowCourse({ courseDetail }) {
     const location = useLocation();
     const navigate = useNavigate();
     const { id } = useParams();
@@ -26,7 +26,7 @@ export default function ShowCourse() {
                 p: 2,
                 margin: "auto",
                 maxWidth: 1200,
-                boxShadow:1,
+                boxShadow: 1,
                 flexGrow: 1,
                 backgroundColor: theme =>
                     theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -49,13 +49,13 @@ export default function ShowCourse() {
                                 variant="h3"
                                 component="div"
                             >
-                                Course Name
+                                {courseDetail?.title}
                             </Typography>
                             <Typography variant="body2" gutterBottom>
                                 ★ 4 (200 reviews)
                             </Typography>
                             <Typography variant="h4" color="text.secondary">
-                                300000 MMK
+                                {courseDetail?.price} $
                             </Typography>
                             <Box sx={{ display: "flex" }}>
                                 <Avatar
@@ -67,17 +67,17 @@ export default function ShowCourse() {
                                     variant="h5"
                                     sx={{ paddingTop: "5px" }}
                                 >
-                                    Sayar Zay
+                                    Teacher :{" "}
+                                    {courseDetail?.teacher &&
+                                    courseDetail.teacher.length > 0
+                                        ? courseDetail.teacher[0].username
+                                        : "Unknown"}
                                 </Typography>
                             </Box>
                             {shouldShowButton && (
                                 <Typography variant="body2" sx={{ margin: 1 }}>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Quos blanditiis tenetur
-                                    unde suscipit, quam beatae rerum inventore
-                                    consectetur, neque doloribus, cupiditate
-                                    numquam dignissimos laborum fugiat deleniti?
-                                    Eum quasi quidem quibusdam.
+                                    <b> Course Description</b> :{" "}
+                                    {courseDetail?.description}
                                 </Typography>
                             )}
                         </Grid>

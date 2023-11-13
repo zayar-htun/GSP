@@ -23,11 +23,11 @@ export default function CourseDetail() {
                 <BreadCrumb />
             </Box>
             <Box sx={{ margin: 6 }}>
-                <ShowCourse />
+                <ShowCourse courseDetail={courseDetail}/>
             </Box>
             <Divider/>
             <Box>
-                <TabsForDetail/>
+                <TabsForDetail courseDetail={courseDetail}/>
             </Box>
         </Box>
     );

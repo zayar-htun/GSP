@@ -43,15 +43,15 @@ export default function Payment() {
                                         fontWeight: 400,
                                     }}
                                 >
-                                    Credit or Debit Card
+                                    Payment Instructions for Course Fees
                                 </Typography>
                             </Box>
-                            <Box>
+                            {/* <Box>
                                 <img
                                     src="/src/assets/Payment/Visa Inc. svg.svg"
                                     alt=""
                                 />
-                            </Box>
+                            </Box> */}
                         </Box>
                         <Box sx={{ mt: "24px" }}>
                             <Box>
@@ -67,6 +67,24 @@ export default function Payment() {
                                 </Typography>
                                 <TextField
                                     id="outlined-basic"
+                                    placeholder="user name"
+                                    fullWidth
+                                    variant="outlined"
+                                />
+                            </Box>
+                            <Box sx={{ mt: "24px" }}>
+                                <Typography
+                                    sx={{
+                                        mb: 1,
+                                        fontSize: "22px",
+                                        lineHeight: "24px",
+                                        fontWeight: 500,
+                                    }}
+                                >
+                                    Bank Account Number
+                                </Typography>
+                                <TextField
+                                    id="outlined-basic"
                                     placeholder="1234 1234 1234 1234"
                                     fullWidth
                                     variant="outlined"
@@ -81,16 +99,19 @@ export default function Payment() {
                                         fontWeight: 500,
                                     }}
                                 >
-                                    Card Number
+                                    Receive Account
                                 </Typography>
                                 <TextField
                                     id="outlined-basic"
-                                    placeholder="1234 1234 1234 1234"
+                                    placeholder="8770 3197 4842 9519"
                                     fullWidth
                                     variant="outlined"
+                                    InputProps={{
+                                        readOnly: true,
+                                    }}
                                 />
                             </Box>
-                            <Box sx={{ mt: "24px" }}>
+                            {/* <Box sx={{ mt: "24px" }}>
                                 <Grid container spacing={2}>
                                     <Grid item xs={6}>
                                         <Typography
@@ -129,7 +150,7 @@ export default function Payment() {
                                         />
                                     </Grid>
                                 </Grid>
-                            </Box>
+                            </Box> */}
                             <Box sx={{ mt: "24px" }}>
                                 <Typography
                                     sx={{

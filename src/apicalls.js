@@ -77,6 +77,24 @@ export async function getLogin(email, password) {
     return false;
 }
 
+//get upload comment
+
+export async function getUploadComment(commentedCourse, text) {
+    const token = getToken();
+    const res = await fetch(`${api}/uploadComment`, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({commentedCourse, text }),
+    });
+    if (!res.ok) return false;
+
+    const uploadComment = await res.json();
+    return uploadComment;
+}
+
 //get Best Course
 export async function getBestCourse() {
     const res = await fetch(`${api}/bestcourses`);

@@ -13,6 +13,7 @@ import EnrolledCourse from "./pages/EnrolledCourse.jsx";
 import ViewEnrolledCourse from "./pages/ViewEnrolledCourse.jsx";
 import TeacherRegister from "./pages/TeacherRegister.jsx";
 import ChatRoom from "./pages/ChatRoom.jsx";
+import ChatMessage from "./pages/ChatMesssage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +64,11 @@ const router = createBrowserRouter([
                 path: "/chatroom",
                 element: <ChatRoom />,
             },
+            {
+                path: "/ChatMessage",
+                element: <ChatMessage />,
+            },
+            
         ],
     },
 ]);
