@@ -65,7 +65,7 @@ export default function TabsForDetail({courseDetail}) {
                 </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
-                <AboutCourse />
+                <AboutCourse courseDetail={courseDetail}/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
                 <AboutInstructor courseDetail={courseDetail}/>

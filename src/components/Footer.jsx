@@ -83,7 +83,7 @@ export default function Footer() {
                                     navigate(`/teacherregister`);
                                 }}
                             >
-                                Teach on Udemy
+                                Teach on GSP
                             </Button>
                             <Button
                                 variant="text"

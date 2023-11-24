@@ -115,9 +115,9 @@ function TeaDash() {
               <LineChartDash/>
             </Box>
             <Divider sx={{my:2}}/>
-            <Box>
+            {/* <Box>
               <AddCourse/>
-            </Box>
+            </Box> */}
             <Divider sx={{my:2}}/>
             <Box>
               <Typography variant="h5">View All Courses</Typography>

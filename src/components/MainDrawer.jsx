@@ -6,6 +6,7 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
+    Typography,
 } from "@mui/material";
 import { green } from "@mui/material/colors";
 import LoginIcon from "@mui/icons-material/Login";
@@ -15,6 +16,7 @@ import CastForEducationIcon from "@mui/icons-material/CastForEducation";
 import { useLocation, useNavigate } from "react-router-dom";
 import { themeContext } from "../ThemedApp";
 import { useContext } from "react";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 export default function MainDrawer({ showDrawer, toggleDrawer }) {
     const navigate = useNavigate();
@@ -22,7 +24,7 @@ export default function MainDrawer({ showDrawer, toggleDrawer }) {
     const { authUser } = useContext(themeContext);
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
-    // console.log(storedUser.user.role);
+    console.log(storedUser.user.role);
 
     return (
         <Box>
@@ -40,30 +42,40 @@ export default function MainDrawer({ showDrawer, toggleDrawer }) {
                     <Avatar sx={{ width: 78, height: 78, mb: -4 }}>A</Avatar>
                 </Box>
                 <Box sx={{ mt: 5 }}>
+                    <Typography sx={{ ml: 9 }}>
+                        <b>role : </b>
+                        {storedUser.user.role}
+                    </Typography>
                     <List>
-                        <ListItemButton
-                            onClick={() => {
-                                navigate("/register");
-                                toggleDrawer();
-                            }}
-                        >
-                            <ListItemIcon>
-                                <HowToRegIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Register" />
-                        </ListItemButton>
-                        <ListItemButton
-                            onClick={() => {
-                                navigate("/login");
-                                toggleDrawer();
-                            }}
-                        >
-                            <ListItemIcon>
-                                <LoginIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Login" />
-                        </ListItemButton>
-                        {storedUser.user?.role === "Teacher" && (
+                        {!storedUser.user && (
+                            <ListItemButton
+                                onClick={() => {
+                                    navigate("/register");
+                                    toggleDrawer();
+                                }}
+                            >
+                                <ListItemIcon>
+                                    <HowToRegIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Register" />
+                            </ListItemButton>
+                         )} 
+
+                        {!storedUser.user && (
+                            <ListItemButton
+                                onClick={() => {
+                                    navigate("/login");
+                                    toggleDrawer();
+                                }}
+                            >
+                                <ListItemIcon>
+                                    <LoginIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Login" />
+                            </ListItemButton>
+                        )} 
+
+                       {storedUser.user?.role === "Teacher" && ( 
                             <ListItemButton
                                 onClick={() => {
                                     navigate("/dashboard");
@@ -76,7 +88,19 @@ export default function MainDrawer({ showDrawer, toggleDrawer }) {
                                 <ListItemText primary="Dashboard" />
                             </ListItemButton>
                         )}
-                        {storedUser.user?.role === "Student" && (
+                        <ListItemButton
+                            onClick={() => {
+                                navigate("/admindash");
+                                toggleDrawer();
+                            }}
+                        >
+                            <ListItemIcon>
+                                <DashboardIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Admin Dashboard" />
+                        </ListItemButton>
+
+                       {storedUser?.user?.role === "Student" && ( 
                             <ListItemButton
                                 onClick={() => {
                                     navigate("/enrolledCourse");
@@ -89,6 +113,25 @@ export default function MainDrawer({ showDrawer, toggleDrawer }) {
                                 <ListItemText primary="Enrolled Courses" />
                             </ListItemButton>
                         )}
+
+                        <ListItemButton
+                            onClick={() => {
+                                // Clear user and token from localStorage
+                                localStorage.removeItem("user");
+                                localStorage.removeItem("token");
+
+                                // Navigate to the "/register" route
+                                navigate("/login");
+
+                                // Close the drawer
+                                toggleDrawer();
+                            }}
+                        >
+                            <ListItemIcon>
+                                <LogoutIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Logout" />
+                        </ListItemButton>
                     </List>
                 </Box>
             </Drawer>

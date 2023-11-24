@@ -14,6 +14,8 @@ import ViewEnrolledCourse from "./pages/ViewEnrolledCourse.jsx";
 import TeacherRegister from "./pages/TeacherRegister.jsx";
 import ChatRoom from "./pages/ChatRoom.jsx";
 import ChatMessage from "./pages/ChatMesssage.jsx";
+import Bank from "./pages/Bank.jsx";
+import AdminDash from "./pages/AdminDash.jsx";
 
 const router = createBrowserRouter([
     {
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
                 element: <Dashboard />,
             },
             {
+                path: "/admindash",
+                element: <AdminDash/>
+            },
+            {
                 path: "/checkout/:id",
                 element: <Checkout />,
             },
@@ -68,6 +74,10 @@ const router = createBrowserRouter([
                 path: "/ChatMessage",
                 element: <ChatMessage />,
             },
+            {
+                path: "/bank",
+                element: <Bank/>
+            }
             
         ],
     },

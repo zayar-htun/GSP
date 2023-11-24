@@ -15,7 +15,7 @@ export default function CourseDetail() {
             const result = await getCourseDetail(id);
             setCourseDetail(result);
             console.log(result);
-        })();
+        })(); 
     },[]);
     return (
         <Box sx={{ marginTop: "25px", marginLeft: "25px",marginRight: "25px" }}>

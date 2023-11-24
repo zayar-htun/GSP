@@ -103,7 +103,7 @@ export default function Summary() {
                         </Box>
                     </Box>
 
-                    <Box>
+                    {/* <Box>
                         <Button
                             variant="contained"
                             sx={{
@@ -121,7 +121,7 @@ export default function Summary() {
                                 Complete Checkout
                             </Typography>
                         </Button>
-                    </Box>
+                    </Box> */}
                 </Box>
             </Card>
         </Box>

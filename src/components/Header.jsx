@@ -20,6 +20,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import { themeContext } from "../ThemedApp";
 import HeaderLanguageChange from "./HeaderLanguageChange";
 import { useNavigate } from "react-router-dom";
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 
 const Search = styled("div")(({ theme }) => ({
     position: "relative",
@@ -219,21 +220,11 @@ export default function Header({ toggleDrawer }) {
                             size="large"
                             aria-label="show 17 new notifications"
                             color="inherit"
+                            onClick={()=>{
+                                navigate(`/bank`)
+                            }}
                         >
-                            <Badge badgeContent={17} color="error">
-                                <NotificationsIcon />
-                            </Badge>
-                        </IconButton>
-                        <IconButton
-                            size="large"
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
-                            color="inherit"
-                        >
-                            <AccountCircle />
+                                <AccountBalanceWalletIcon />
                         </IconButton>
                     </Box>
                     <Box sx={{ display: { xs: "flex", md: "none" } }}>

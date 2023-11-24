@@ -1,8 +1,18 @@
 import { Avatar, Box, Card, Divider, Typography } from "@mui/material";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getChatRoom } from "../apicalls";
 
 export default function ChatRoom() {
     const navigate = useNavigate();
+    
+
+    useEffect(()=>{
+        (async()=>{
+            const result = await getChatRoom();
+            console.log(result);
+        })()
+    },[]);
     return (
         <Box>
             <Box

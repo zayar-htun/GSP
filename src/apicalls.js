@@ -112,3 +112,68 @@ export async function getCourseDetail(id) {
     const bestcourses = await res.json();
     return bestcourses;
 }
+
+
+//get payment 
+
+export async function getPayment(accountNo, pincode, receiveNo, amount,id,teacherId) {
+    const token = getToken();
+    const res = await fetch(`${api}/payment`, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({accountNo, pincode, receiveNo, amount,id,teacherId}),
+    });
+    if (!res.ok) return false;
+
+    const paymentMethod = await res.json();
+    return paymentMethod;
+}
+
+
+//get enrolledCourse
+export async function getEnrolledCourse() {
+    const token = getToken();
+    const res = await fetch(`${api}/enrolledCourses`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
+    if (!res.ok) return false;
+
+    const enrollCourse = await res.json();
+    return enrollCourse;
+}
+
+//getTopUp
+export async function getTopUp(name,accountNo,pin,amount){
+    const token = getToken();
+    const res = await fetch(`${api}/topup`, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({name,accountNo,pin,amount}),
+    });
+    if (!res.ok) return false;
+
+    const paymentMethod = await res.json();
+    return paymentMethod;
+}
+
+export async function getChatRoom(){
+    const token = getToken();
+    const res = await fetch(`${api}/chatRoom`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
+    });
+    if (!res.ok) return false;
+
+    const paymentMethod = await res.json();
+    return paymentMethod;
+}
