@@ -7,13 +7,20 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function Teacher() {
+    const navigate = useNavigate();
     return (
         <Box>
             <Typography>Teacher Course Fees</Typography>
             <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-                <ListItem alignItems="flex-start">
+                <ListItem
+                    alignItems="flex-start"
+                    onClick={() => {
+                        navigate(`/paymentTeacher/Ali/300/Rockstar`);
+                    }}
+                >
                     <ListItemAvatar>
                         <Avatar
                             alt="Remy Sharp"
@@ -32,15 +39,18 @@ export default function Teacher() {
                                 >
                                     Ali Connors
                                 </Typography>
-                                {
-                                    " Rockstar course bought at 28/3/2023"
-                                }
+                                {" Rockstar course bought at 28/3/2023"}
                             </React.Fragment>
                         }
                     />
                 </ListItem>
                 <Divider variant="inset" component="li" />
-                <ListItem alignItems="flex-start">
+                <ListItem
+                    alignItems="flex-start"
+                    onClick={() => {
+                        navigate(`/paymentTeacher/Remy/400/Design`);
+                    }}
+                >
                     <ListItemAvatar>
                         <Avatar
                             alt="Remy Sharp"
@@ -59,15 +69,18 @@ export default function Teacher() {
                                 >
                                     Remy Sharp
                                 </Typography>
-                                {
-                                    " Design course bought at 28/3/2023"
-                                }
+                                {" Design course bought at 28/3/2023"}
                             </React.Fragment>
                         }
                     />
                 </ListItem>
                 <Divider variant="inset" component="li" />
-                <ListItem alignItems="flex-start">
+                <ListItem
+                    alignItems="flex-start"
+                    onClick={() => {
+                        navigate(`/paymentTeacher/Mohammed/300/Programming`);
+                    }}
+                >
                     <ListItemAvatar>
                         <Avatar
                             alt="Remy Sharp"
@@ -86,9 +99,7 @@ export default function Teacher() {
                                 >
                                     Mohammed Connors
                                 </Typography>
-                                {
-                                    " Programming course bought at 28/3/2023"
-                                }
+                                {" Programming course bought at 28/3/2023"}
                             </React.Fragment>
                         }
                     />

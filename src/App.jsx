@@ -17,6 +17,7 @@ export default function App() {
         location.pathname !== "/login" &&
         location.pathname !== "/register" &&
         location.pathname !== "/dashboard" &&
+        location.pathname !== "/success" &&
         location.pathname !== "/teacherregister";
 
     return (

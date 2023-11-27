@@ -7,19 +7,25 @@ const CarouselShow = () => {
     const items = [
         {
             guid: 1,
-            image: "https://static.vecteezy.com/system/resources/previews/004/299/835/original/online-shopping-on-phone-buy-sell-business-digital-web-banner-application-money-advertising-payment-ecommerce-illustration-search-free-vector.jpg",
+            image: "/src/assets/carousel/c1.jpg",
             alt: "First slide",
             caption: "Slide 1",
         },
         {
             guid: 2,
-            image: "https://static.vecteezy.com/system/resources/previews/004/299/835/original/online-shopping-on-phone-buy-sell-business-digital-web-banner-application-money-advertising-payment-ecommerce-illustration-search-free-vector.jpg",
+            image: "/src/assets/carousel/c2.jpg",
             alt: "Second slide",
             caption: "Slide 2",
         },
         {
             guid: 3,
-            image: "https://static.vecteezy.com/system/resources/previews/004/299/835/original/online-shopping-on-phone-buy-sell-business-digital-web-banner-application-money-advertising-payment-ecommerce-illustration-search-free-vector.jpg",
+            image: "/src/assets/carousel/c3.jpg",
+            alt: "Third slide",
+            caption: "Slide 3",
+        },
+        {
+            guid: 4,
+            image: "/src/assets/carousel/c4.jpg",
             alt: "Third slide",
             caption: "Slide 3",
         },
@@ -35,6 +41,7 @@ const CarouselShow = () => {
                 showThumbs={false}
                 showIndicators={false}
                 useKeyboardArrows={true}
+                style={{ height: "550px" }}
             >
                 {items.map(item => {
                     return (

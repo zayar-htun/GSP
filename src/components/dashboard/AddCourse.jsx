@@ -10,6 +10,7 @@ import {
 import { FileUpload as FileUploadIcon } from "@mui/icons-material";
 import { useRef, useState } from "react";
 import { getUploadCourse, getUploadModule } from "../../apicalls";
+import { useNavigate } from "react-router-dom";
 
 function AddCourse() {
     const titleInput = useRef();
@@ -21,6 +22,7 @@ function AddCourse() {
     const [uploadIds, setUploadIds] = useState([]);
     const [video, setVideo] = useState("");
     const [thumb, setThumb] = useState("");
+    const navigate = useNavigate();
 
     const getFile = async () => {
         const [fileHandle] = await window.showOpenFilePicker({
@@ -193,6 +195,9 @@ function AddCourse() {
                         courseCategoryInput.current.value = "";
                         coursePriceInput.current.value = "";
                         setUploadIds([]);
+
+                        navigate(`/`)
+                        
                     }}>
                         <OutlinedInput
                             required
@@ -237,7 +242,7 @@ function AddCourse() {
                             <IconButton>
                                 <FileUploadIcon />
                             </IconButton>
-                            <img src={thumb} alt="" style={{ width: "100%" }} />
+                            <img src={thumb} alt="" style={{ width: "50px", height:"50px" }} />
                         </Box>
                         <Button
                             type="submit"

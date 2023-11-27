@@ -22,13 +22,9 @@ export default function AboutGsp() {
                         </Card>
                     </Box>
                     <Box sx={{marginLeft: 2 }}>
-                        <Typography variant="h4">Lorem ipsum</Typography>
+                        <Typography variant="h4">Global Study Point</Typography>
                         <Typography variant="h6">
-                            Lorem ipsum dolor sit amet consectetur. Pharetra
-                            fermentum risus ac id. Aenean purus enim neque amet
-                            pellentesque nunc a vestibulum. Sed neque ultrices
-                            neque lectus tempus orci. Auctor et magna habitant
-                            volutpat elit eget tempus adipiscing dignissim.
+                        Educational Empowerment Hub: Revolutionizing Learning with Global Study Point's Comprehensive E-Learning Platform
                         </Typography>
                         <Button
                             variant="contained"

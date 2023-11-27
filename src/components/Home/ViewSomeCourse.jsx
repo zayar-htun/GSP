@@ -15,45 +15,51 @@ export default function ViewSomeCourse() {
     const [courseLists, setCourseLists] = useState([
         {
             _id: 1,
-            name: "The Net Ninja",
-            logo: "https://www.filepicker.io/api/file/JIGkr7PVQeuw9rcBtGuB",
-            price: 300000,
+            name: "Engineering",
+            teaname:"Dr Sarvepalli ",
+            logo: "/src/assets/stu/engineer.jpg",
+            price: 200000,
             rating: 4.5,
         },
         {
             _id: 2,
-            name: "The Net Ninja",
-            logo: "https://www.filepicker.io/api/file/JIGkr7PVQeuw9rcBtGuB",
+            name: "Sage",
+            teaname:"Nolan Mars",
+            logo: "/src/assets/stu/sage.jpg",
             price: 300000,
             rating: 4.5,
         },
         {
             _id: 3,
-            name: "The Net Ninja",
-            logo: "https://www.filepicker.io/api/file/JIGkr7PVQeuw9rcBtGuB",
+            name: "Marketing",
+            teaname:"Savitribai Phule",
+            logo: "/src/assets/stu/marketingg.jpg",
             price: 300000,
             rating: 3,
         },
         {
             _id: 4,
-            name: "The Net Ninja",
-            logo: "https://www.filepicker.io/api/file/JIGkr7PVQeuw9rcBtGuB",
+            name: "UI/UX",
+            teaname:"David James",
+            logo: "/src/assets/stu/uiux.jpg",
+            price: 300000,
+            rating: 4,
+        },
+        {
+            _id: 5,
+            name: "JavaScript",
+            teaname:"McAuthor",
+            logo: "/src/assets/stu/js.jpg",
             price: 300000,
             rating: 3,
         },
         {
-            _id: 5,
-            name: "The Net Ninja",
-            logo: "https://www.filepicker.io/api/file/JIGkr7PVQeuw9rcBtGuB",
-            price: 300000,
-            rating: 4.5,
-        },
-        {
             _id: 6,
-            name: "The Net Ninja",
-            logo: "https://www.filepicker.io/api/file/JIGkr7PVQeuw9rcBtGuB",
+            name: "Hacking Course",
+            teaname:"Swami Vivekananda",
+            logo: "/src/assets/stu/hack.jpg",
             price: 300000,
-            rating: 4.5,
+            rating: 5,
         },
     ]);
 
@@ -89,8 +95,8 @@ export default function ViewSomeCourse() {
                             />
                         </Card>
                         <Box sx={{ margin: 1 }}>
-                            <Typography variant="h4">{course.name}</Typography>
-                            <Typography variant="h6">Programming</Typography>
+                            <Typography variant="h4">{course.teaname}</Typography>
+                            <Typography variant="h6">{course.name}</Typography>
                             <Typography>{course.price} MMK</Typography>
                             <Rating
                                 name="read-only"

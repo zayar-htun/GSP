@@ -16,6 +16,8 @@ import ChatRoom from "./pages/ChatRoom.jsx";
 import ChatMessage from "./pages/ChatMesssage.jsx";
 import Bank from "./pages/Bank.jsx";
 import AdminDash from "./pages/AdminDash.jsx";
+import PaymentTeacher from "./components/dashboard/admin/PaymentTeacher.jsx";
+import PaymentSuccessful from "./components/dashboard/admin/PaymentSuccessful.jsx";
 
 const router = createBrowserRouter([
     {
@@ -77,6 +79,14 @@ const router = createBrowserRouter([
             {
                 path: "/bank",
                 element: <Bank/>
+            },
+            {
+                path: "/paymentTeacher/:name/:price/:course",
+                element: <PaymentTeacher/>
+            },
+            {
+                path: "/success",
+                element: <PaymentSuccessful/>
             }
             
         ],

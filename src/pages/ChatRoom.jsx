@@ -47,7 +47,7 @@ export default function ChatRoom() {
                     </Box>
                 </Box>
             </Card>
-            <Card sx={{ m: 1, cursor: "pointer" }}>
+            {/* <Card sx={{ m: 1, cursor: "pointer" }}>
                 <Box sx={{ display: "flex", alignItems: "center", p: 4 }}>
                     <Box>
                         <Avatar
@@ -64,7 +64,7 @@ export default function ChatRoom() {
                         </Typography>
                     </Box>
                 </Box>
-            </Card>
+            </Card> */}
         </Box>
     );
 }

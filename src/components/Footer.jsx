@@ -34,7 +34,7 @@ export default function Footer() {
                                 variant="h5"
                                 sx={{ color: "whitesmoke" }}
                             >
-                                Logo
+                                GSP
                             </Typography>
                             <List>
                                 <ListItem disablePadding>
