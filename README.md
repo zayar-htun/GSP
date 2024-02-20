@@ -53,14 +53,10 @@ The Admin Dashboard provides administrators with powerful tools to manage and mo
 ## Getting Started
 
 ### 1. Backend Code
-
-    Clone the backend code from the following repository:
-        ```bash
+    ```bash
         git clone https://github.com/zayar-htun/api-for-gsp.git
 
 
 ### 2. Frontend Code
-
-    Clone the backend code from the following repository:
-        ```bash
+    ```bash
         https://github.com/zayar-htun/api-for-gsp.git
